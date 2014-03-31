@@ -13,4 +13,12 @@ feature "Product Manager" do
     end
   end
 
+  scenario "User can add a product and see it on the homepage" do
+    visit '/'
+    click_on "Add a Product"
+    fill_in "create_product", with: "Awesome sauce"
+    click_on "Create Product"
+    expect(page).to have_content "Awesome sauce"
+  end
+
 end
